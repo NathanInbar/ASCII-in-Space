@@ -1,2 +1,2 @@
 # ASCII-in-Space
-![](Ascii-in-Space.gif)
+![](ASCII-in-Space.gif)
