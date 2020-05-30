@@ -14,11 +14,7 @@ def calculateDistance(x1,y1,x2,y2):
     dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
     return dist
 class Agent:
-
     def __init__(self, char, x, y, xVel, yVel, color=(255,255,255), colorChange=60):
-        """
-        args: self, character, x position, y position, x velocity, y velocity, color, color change in % (x % darker)
-        """
         self.char = char
         self.x = x
         self.y = y
@@ -36,7 +32,6 @@ class Agent:
             self.y = -15
         # - - -
         d = calculateDistance(self.x,self.y,m_x,m_y)#distance from mouse
-        #if d is greater than 255
         d = 255 - d
         if d<30:
             d=30
@@ -44,19 +39,9 @@ class Agent:
             d=255
         self.color = (d,d,d)
 
-        # if(d < 50):
-        #     self.color = (255,255,255)
-        # elif(d < 120):
-        #     self.color = (230,230,230)
-        # elif(d < 150):
-        #     self.color = (175,175,175)
-        # else: self.color = (100,100,100)
-
-
     def render(self, win, font):
         text = font.render(self.char, 1, self.color, True)
         win.blit(text,(self.x,self.y))
-
 # - - -
 bkg_dark = (10,10,10)
 earth = pygame.image.load("Earth.png")
@@ -90,7 +75,7 @@ def render():
     win.fill(bkg_dark)
     for agent in agents:
         agent.render(win, font)
-    win.blit(earth,(480-175, 400-175))
+    win.blit(earth,(305, 225))
     pygame.display.update()
 
 def main():
